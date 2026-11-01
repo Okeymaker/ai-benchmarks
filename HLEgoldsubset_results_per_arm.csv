@@ -1,0 +1,3 @@
+arm,agents,answers,correct,accuracy,brier_mean,log_loss_mean,kelly_even_money_log10_mean,control_kelly_nocap_median,control_kelly_nocap_geomean,control_kelly_cap08_median,control_kelly_cap08_geomean,busts_nocap
+T,5,300,213,0.71,0.1701,0.5053,4.663,1355.4,2514.5,1236.8,2335.0,0
+B,5,300,216,0.72,0.1724,0.5115,4.742,5695.4,0.0,5421.5,2931.5,1

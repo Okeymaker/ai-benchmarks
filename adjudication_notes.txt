@@ -1,0 +1,25 @@
+run38 - adjudication notes (arm T)
+==================================
+
+Case:     run38-T01, question 16 (item 6726012526992c47ce3a7f00, dynamic-programming running time)
+Key:      Theta(min{15n, M + 12n} * n)
+Answer:   Theta(n^2), i.e. O(n^2) time
+Judge:    two independent Opus passes split: yes / no
+          yes: M > 0, so 12n <= min{15n, M+12n} <= 15n; the min is Theta(n) and the key is Theta(n^2).
+          no:  "Theta(n^2) drops the dependence on M."
+Decision: CORRECT (adjudicated by the PI, 2026-10-31)
+Note:     PI: min(15n, M+12n) lies between 12n and 15n for M at least 0, so it is Theta(n) and the key
+          equals Theta(n^2); the no pass misread the min. B answers O(nM+n^2) remain wrong.
+Context:  all five B agents answered O(n(M+n)) = O(nM + n^2); both judge passes marked these wrong
+          (nM + n^2 is not Theta(n^2) for large M). T01 is the only agent that reduced the key.
+Effect:   none on the reported results (the analysis had already counted this answer as correct).
+          After adjudication: 300/300 T answers graded, 0 open.
+
+Commands used (Windows CMD, in BlackNova\hle-gold-method):
+
+echo {"session_id": "run38-T01", "position": 16, "correct": true, "note": "PI: min(15n, M+12n) lies between 12n and 15n for M at least 0, so it is Theta(n) and the key equals Theta(n^2); the no pass misread the min. B answers O(nM+n^2) remain wrong."} > runs\run38\decisions_T.jsonl
+
+python tools\runner.py adjudicate --config runs\run38\run_config.json --arm T --decisions runs\run38\decisions_T.jsonl
+
+Files: runs\run38\decisions_T.jsonl (decision), runs\run38\adjudicate_T.jsonl (queued case),
+       runs\run38\grades_T.jsonl (grade record, method "adjudicated").
